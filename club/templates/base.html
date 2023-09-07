@@ -19,21 +19,21 @@
             <a class="navbar-brand" href="{% url 'home' %}">Home</a>
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link" href="#scrollspyHeading1">Matches</a>
+                    <a class="nav-link" href="{% url 'matches' %}">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#scrollspyHeading2">News</a>
+                    <a class="nav-link" href="{% url 'news' %}">News</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                         aria-expanded="false">Team</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#scrollspyHeading3">Players</a></li>
-                        <li><a class="dropdown-item" href="#scrollspyHeading4">Stadium</a></li>
+                        <li><a class="dropdown-item" href="{% url 'players' %}">Players</a></li>
+                        <li><a class="dropdown-item" href="{% url 'stadium' %}">Stadium</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#scrollspyHeading5">Partners</a></li>
+                        <li><a class="dropdown-item" href="{% url 'partners' %}">Partners</a></li>
                     </ul>
                 </li>
             </ul>
