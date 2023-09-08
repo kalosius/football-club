@@ -1,9 +1,12 @@
 from django.shortcuts import render
-
+from . models import *
+from . filters import Product_filter
 # Create your views here.
 def home(request):
-    pr_title = 'Mazowezo'
-    return render(request, 'index.html', {'pr_title':pr_title})
+    players = Player.objects.all().order_by('-id')
+    product_filter = Product_filter(request.GET, queryset=players)
+    players = product_filter.qs
+    return render(request, 'index.html', {'players':players,'product_filter':product_filter})
 
 
 def matches(request):
