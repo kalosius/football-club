@@ -3,7 +3,8 @@ from . models import *
 from . filters import Product_filter
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    players = Player.objects.all()
+    return render(request, 'index.html', {'players':players})
 
 def matches(request):
     return render(request, 'matches.html')
