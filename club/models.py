@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+
 
 num = [('Goal Keeper', 'Goal Keeper'),('Defender','Defender'),('Midfielder','Midfielder'),('Striker','Striker'),('Winger','Winger'),]
 under = [('First Team', 'First Team'),('Second Team', 'Second Team')]
@@ -14,6 +16,7 @@ class Player(models.Model):
     salary = models.IntegerField(default=0, null=True, blank=True)
     appearance = models.IntegerField(default=0, null=True, blank=True)
     goals = models.IntegerField(default=0, null=True, blank=True)
+    player_image = models.FileField(upload_to='club/', max_length=250, null=True, default=None)
     
     def players_tax(self):
         tax = self.salary * 0.18
