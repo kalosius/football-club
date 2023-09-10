@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'club',
     'django_filters',
     'crispy_forms',
+    'whitenoise',
     
 ]
 
