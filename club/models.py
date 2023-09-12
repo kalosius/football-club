@@ -26,4 +26,6 @@ class Player(models.Model):
         salary_amount = self.salary - self.players_tax()
         return float(salary_amount)
 
-    
+
+class Gallery(models.Model):
+    gallery_pic = models.FileField(upload_to="club/", null=True, default=None, max_length=250)
