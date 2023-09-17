@@ -19,10 +19,21 @@ def partners(request):
 
 
 def players(request):
-    players = Player.objects.all().order_by('-id')
-    product_filter = Product_filter(request.GET, queryset=players)
-    players = product_filter.qs
-    return render(request, 'players.html', {'players':players,'product_filter':product_filter})
+    # players = Player.objects.all().order_by('-id')
+    # product_filter = Product_filter(request.GET, queryset=players)
+    # players = product_filter.qs
+    search_term = request.GET.get('player_name__search_term', 'player_name')
+    # Perform data filtering based on the search_term
+    filtered_players = Player.objects.filter(player_name__icontains=search_term)
+    players = Player.objects.all()
+    context = {
+        'filtered_players': filtered_players,
+        'players':players,
+    }
+    
+    return render(request, 'players.html', context)
+
+    # return render(request, 'players.html', {'players':players,'product_filter':product_filter})
 
 
 def stadium(request):

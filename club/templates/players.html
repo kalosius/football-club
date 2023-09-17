@@ -1,11 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<p class="navbar-brand px-3">Players Page</p>
-<div id="fil" class="container">
-    <form action="" method="GET">
-        {{product_filter.form}}
-        <input type="submit" value="Search Products" class="btn btn-secondary btn" />
-    </form>
-</div>
+    <!-- Filter Form -->
+    <div id="fil" class="container">
+        <form action="" method="GET">
+            {{product_filter.form}}
+            <input type="submit" value="Search Products" class="btn btn-secondary btn" />
+        </form>
+    </div>
+            <!-- Search -->
+            <br>
+            <form class="d-flex container" role="search" action="" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  name="search_term">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <!-- End search -->
+        
+            <!-- Cards start from here -->
+            <br>
+            {% for player in players %}
+            <div class="container-fluid">
+                <div class="">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://i.pinimg.com/736x/f1/58/7b/f1587b6d875a8232847e453c92c94975.jpg" class="card-img-top"
+                            alt="Jumper">
+                        <div class="card-body">
+                            <h5 class="card-title">{{player.player_name}}</h5>
+                            <p class="card-text">{{player.shirt_number}}
+                            </p>
+                            <a href="#" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Footer begins from here -->
+                <!-- <br><br><br><br><br>
+                <div class="card">
+                    <div class="card-header">
+                        Quote
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>A well-known quote, contained in a blockquote element.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+                    </div>
+                </div> -->
+                <!-- Footer ends from here -->
+            </div>
+
 {% endblock %}

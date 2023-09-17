@@ -1,0 +1,24 @@
+.mainbody{
+    background-image: url('https://i.pinimg.com/236x/a4/26/89/a426893625d4729a87cdd9593b0ba73e.jpg') !important;
+    background-size: cover; /* Optional: Adjust the image size to cover the entire element */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}

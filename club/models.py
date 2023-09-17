@@ -18,6 +18,10 @@ class Player(models.Model):
     goals = models.IntegerField(default=0, null=True, blank=True)
     player_image = models.FileField(upload_to='club/', max_length=250, null=True, default=None)
     
+    def __str__(self):
+        return self.player_name
+    
+    
     def players_tax(self):
         tax = self.salary * 0.18
         return float(tax)
