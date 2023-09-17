@@ -2,12 +2,15 @@
 {% block content %}
 
     <!-- Filter Form -->
-    <div id="fil" class="container">
+    
+    <!-- <div id="fil" class="container">
         <form action="" method="GET">
             {{product_filter.form}}
             <input type="submit" value="Search Products" class="btn btn-secondary btn" />
         </form>
-    </div>
+    </div> -->
+    
+    
             <!-- Search -->
             <br>
             <form class="d-flex container" role="search" action="" method="GET">
@@ -20,13 +23,13 @@
             <br>
             {% for player in players %}
             <div class="container-fluid">
-                <div class="">
-                    <div class="card" style="width: 18rem;">
+                <div class="container">
+                    <div class="card" style="width: 18rem; float: left;">
                         <img src="https://i.pinimg.com/736x/f1/58/7b/f1587b6d875a8232847e453c92c94975.jpg" class="card-img-top"
                             alt="Jumper">
                         <div class="card-body">
                             <h5 class="card-title">{{player.player_name}}</h5>
-                            <p class="card-text">{{player.shirt_number}}
+                            <p class="card-text">Shirt Number: {{player.shirt_number}} <br>{{player.position}}
                             </p>
                             <a href="#" class="btn btn-primary">View</a>
                         </div>
