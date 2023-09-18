@@ -5,21 +5,21 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Category</th>
-            <th scope="col">Item Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Unit Price(UGX)</th>
-            <th scope="col">Detail</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary(UGX)</th>
+            <th scope="col">Age(Years)</th>
+            <th scope="col">Tax(UGX)</th>
+            <th scope="col">Net Salary(UGX)</th>
         </tr>
     </thead>
     {% for player in players %}
     <tbody>
         <tr>
             <td>{{player.player_name}}</td>
-            <td>{{player.player_name}}</td>
-            <td>{{player.player_name}}</td>
-            <td>{{player.player_name}}</td>
-            <td>{{ player.player_image }}</td>
+            <td>shs.{{player.salary}}</td>
+            <td>{{player.calculate_age}}</td>
+            <td>shs.{{player.calculate_tax}}</td>
+            <td>shs.{{ player.calculate_net_salary }}</td>
         </tr>
     </tbody>
     {% endfor %}

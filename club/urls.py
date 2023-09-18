@@ -11,6 +11,7 @@ urlpatterns = [
     path('partners/', views.partners, name='partners'),
     path('players/', views.players, name='players'),
     path('stadium/', views.stadium, name='stadium'),
+    path('player_view/', views.player_view, name='player_view'),
 ]
 
 if settings.DEBUG:

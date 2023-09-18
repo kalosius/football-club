@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from datetime import date
 
 num = [('Goal Keeper', 'Goal Keeper'),('Defender','Defender'),('Midfielder','Midfielder'),('Striker','Striker'),('Winger','Winger'),]
 under = [('First Team', 'First Team'),('Second Team', 'Second Team')]
@@ -21,14 +21,29 @@ class Player(models.Model):
     def __str__(self):
         return self.player_name
     
+    def calculate_age(self):
+        today = date.today()
+        age = today.year - self.date_of_birth.year - ((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
+        return age
     
-    def players_tax(self):
-        tax = self.salary * 0.18
-        return float(tax)
     
-    def net_salary(self):
-        salary_amount = self.salary - self.players_tax()
-        return float(salary_amount)
+    def calculate_tax(self):
+        if self.salary is not None:
+            tax_percentage = 18  # 18% tax rate
+            tax_amount = (tax_percentage / 100) * self.salary
+            return tax_amount
+        else:
+            return 0  # If salary is not provided, tax is 0
+
+    
+    def calculate_net_salary(self):
+        if self.salary is not None:
+            tax_percentage = 18  # 18% tax rate
+            tax_amount = (tax_percentage / 100) * self.salary
+            net_salary = self.salary - tax_amount
+            return net_salary
+        else:
+            return None  # If salary is not provided, net salary is None
 
 
 class Gallery(models.Model):

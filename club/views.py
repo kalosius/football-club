@@ -38,3 +38,6 @@ def players(request):
 
 def stadium(request):
     return render(request, 'stadium.html')
+
+def player_view(request):
+    return render(request, 'player_details.html')
