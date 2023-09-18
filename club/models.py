@@ -45,6 +45,17 @@ class Player(models.Model):
         else:
             return None  # If salary is not provided, net salary is None
 
+    
+    def gross_salary(self):
+        if self.calculate_net_salary() is not None:
+            months = 12
+            gross = (months * (self.calculate_net_salary()))
+            return gross
+        else:
+            return None
 
 class Gallery(models.Model):
     gallery_pic = models.FileField(upload_to="club/", null=True, default=None, max_length=250)
+    
+    
+            
